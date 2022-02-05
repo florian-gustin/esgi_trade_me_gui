@@ -7,8 +7,8 @@ import 'package:minio/minio.dart';
 class Storage{
   final minio = Minio(
     endPoint: 's3.eu-west-1.amazonaws.com',
-    accessKey: 'AKIA2CPOUL52SITUBTY6',
-    secretKey: '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',
+    accessKey: '',
+    secretKey: '',
   );
 
   void add(Uint8List bits) async{
