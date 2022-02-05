@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trade_me_gui/controllers/login.dart';
+import 'package:trade_me_gui/main.dart';
 import 'package:trade_me_gui/services/backend.dart';
 
 class LoginPage extends StatefulWidget {

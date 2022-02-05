@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trade_me_gui/controllers/home.dart';
+import 'package:trade_me_gui/infrastructure/s3_upload.dart';
 import 'package:trade_me_gui/services/file_storage.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,7 +28,8 @@ class _HomePageState extends State<HomePage> {
           Center(
               child: ElevatedButton(
                   onPressed: () {
-                    _homeController.addPhoto();
+                    var storage = Storage();
+                    storage.get();
                   },
                   child: const Text("UPLOAD YOUR PHOTO"))),
           const SizedBox(

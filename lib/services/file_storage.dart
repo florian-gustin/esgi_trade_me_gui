@@ -11,7 +11,7 @@ class FileStorageService{
   }
 
   Future<Image?> getImageAsWidget()async{
-    await ImagePickerWeb.getImageAsWidget();
+    await ImagePickerWeb.getImageAsBytes();
   }
 
   Future<Uint8List?> getImageAsBytes()async{

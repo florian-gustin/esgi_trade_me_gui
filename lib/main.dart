@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:trade_me_gui/router.gr.dart';
 
-void main() {
+
+
+void main() async{
   runApp(MyApp());
 }
 
