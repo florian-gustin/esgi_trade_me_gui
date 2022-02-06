@@ -4,18 +4,13 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 
-class Storage {
+class S3LambdaService {
   Dio dio = Dio();
 
   Future<dynamic> getPresignatedURL() async {
-    FormData formData = FormData();
-
-    print("hello");
-
     try {
       var response = await dio
           .get("https://bc9c50wvrj.execute-api.eu-west-1.amazonaws.com/Prod/");
-
       return response.data["uploadURL"];
     } catch (e) {
       print(e);

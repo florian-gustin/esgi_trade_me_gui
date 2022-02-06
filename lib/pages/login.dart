@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:trade_me_gui/controllers/login.dart';
 import 'package:trade_me_gui/main.dart';
+import 'package:trade_me_gui/services/aws_rds.dart';
 import 'package:trade_me_gui/services/backend.dart';
 
 class LoginPage extends StatefulWidget {
@@ -35,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final LoginController _loginController = LoginController(BackEndService(), context);
+    final LoginController _loginController = LoginController(BackEndService(),AmazonWebRDSService(Dio()), context);
 
     return Scaffold(
       body: Stack(
