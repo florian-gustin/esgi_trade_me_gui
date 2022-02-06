@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
@@ -54,11 +55,14 @@ class _HomePageState extends State<HomePage> {
           Center(
               child: ElevatedButton(
                   onPressed: ()  {
-                    setState(() async {
-                      users = await _homeController.getAll();
-                    });
+                   _homeController.getAll().then((value) {
+                     setState(() {
+                        users = value.reversed.toList();
+                     });
+                   });
+
                   },
-                  child: const Text("Get all users"))),
+                  child: const Text("Get latest logged users"))),
           const SizedBox(
             height: 250,
           ),
@@ -66,8 +70,14 @@ class _HomePageState extends State<HomePage> {
             child: ListView.builder(
               itemBuilder: (context, index) {
                 final user = users[index];
-                return ListTile(
-                  title: Text(user.email),
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Text(user.email),
+                    Text(user.lastDate ?? ''),
+                  ],),
                 );
               },
               itemCount: users.length,

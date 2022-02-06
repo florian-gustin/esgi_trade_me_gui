@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
+import 'package:trade_me_gui/models/user.dart';
 
 class AmazonWebRDSService {
   final Dio _dio;
@@ -15,19 +18,23 @@ class AmazonWebRDSService {
                   "Content-Type": "application/json"
                 },
               ));
-
       return response.data;
     } catch (e) {
       rethrow;
     }
   }
 
-  Future<List<Map<String, dynamic>>> getAll() async {
+  Future<List<User>> getAll() async {
     try {
       var response =
-          await _dio.get("https://trademe-node-rds.herokuapp.com/users");
+          await _dio.get("https://trademe-node-rds.herokuapp.com/users", options: Options(
+            headers: {
+              "Content-Type": "application/json"
+            },
+          ));
 
-      return response.data["results"];
+      final data = response.data["results"] as List<dynamic>;
+      return data.map((e) => User.fromJson(e)).toList();
     } catch (e) {
       rethrow;
     }

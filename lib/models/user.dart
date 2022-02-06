@@ -3,7 +3,7 @@
 class User {
   String email;
   String? password;
-  DateTime? lastDate;
+  String? lastDate;
 
   User({required this.email, this.password, this.lastDate});
 
