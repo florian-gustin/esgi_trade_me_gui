@@ -23,7 +23,7 @@ class HomeController {
       var storage = S3LambdaService();
       String presignatedURL = await storage.getPresignatedURL();
       print(presignatedURL);
-      await storage.upload(presignatedURL, img!.files.single.bytes!);
+      // await storage.upload(presignatedURL, img!.files.single.bytes!);
       print("UPLOADED");
       return "upload";
     } catch (e) {

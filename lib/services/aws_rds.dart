@@ -27,7 +27,7 @@ class AmazonWebRDSService {
       var response =
           await _dio.get("https://trademe-node-rds.herokuapp.com/users");
 
-      return response.data;
+      return response.data["results"];
     } catch (e) {
       rethrow;
     }

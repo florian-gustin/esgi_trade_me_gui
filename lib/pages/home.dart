@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final _homeController = HomeController(
         FileStorageService(), AmazonWebRDSService(Dio()), context);
-    _homeController.getAll();
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -49,13 +49,29 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: const Text("UPLOAD YOUR PHOTO"))),
           const SizedBox(
+            height: 25,
+          ),
+          Center(
+              child: ElevatedButton(
+                  onPressed: ()  {
+                    setState(() async {
+                      users = await _homeController.getAll();
+                    });
+                  },
+                  child: const Text("Get all users"))),
+          const SizedBox(
             height: 250,
           ),
           Flexible(
-            child: ListView.builder(itemBuilder: (context, index) {
-              final user = users[index];
-              return ListTile(title: Text(user.email),);
-            }, itemCount: users.length,),
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                final user = users[index];
+                return ListTile(
+                  title: Text(user.email),
+                );
+              },
+              itemCount: users.length,
+            ),
           ),
         ],
       ),
