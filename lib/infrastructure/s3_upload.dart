@@ -24,14 +24,6 @@ class Storage {
     return "";
   }
 
-  void get() async {
-    // print(await minio.bucketExists('tradesme-bucket'));
-    final stream = await minio.getObject('tradesme-bucket', 'bon.png');
-
-    // Get object length
-    // print(stream.contentLength);
-  }
-
   Future<bool> upload(String bucketUrl, Uint8List data) {
     Map<String, String> headers = new Map<String, String>();
     headers.putIfAbsent("Content-Type", () => "image/jpeg");
