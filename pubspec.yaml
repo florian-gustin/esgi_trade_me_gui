@@ -39,6 +39,7 @@ dependencies:
   image_picker_web: any
   minio: ^3.5.0
   file_picker: ^4.3.3
+  dio: ^4.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

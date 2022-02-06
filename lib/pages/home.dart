@@ -28,8 +28,8 @@ class _HomePageState extends State<HomePage> {
           Center(
               child: ElevatedButton(
                   onPressed: () {
-                    var storage = Storage();
-                    storage.get();
+                    _homeController.addPhoto();
+
                   },
                   child: const Text("UPLOAD YOUR PHOTO"))),
           const SizedBox(
