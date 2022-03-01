@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    def scannerHome = tool 'esgi-trade-me-gui-flutter';
+    def scannerHome = tool 'sonarqube';
     withSonarQubeEnv() {
       sh "${scannerHome}/bin/sonar-scanner"
     }
