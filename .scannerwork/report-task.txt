@@ -1,0 +1,6 @@
+projectKey=esgi_trademe_flutter
+serverUrl=https://sonar.lphn.fr
+serverVersion=9.2.4.50792
+dashboardUrl=https://sonar.lphn.fr/dashboard?id=esgi_trademe_flutter
+ceTaskId=AX9MC4ZSdm9hKbYSlIGE
+ceTaskUrl=https://sonar.lphn.fr/api/ce/task?id=AX9MC4ZSdm9hKbYSlIGE
