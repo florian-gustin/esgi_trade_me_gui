@@ -1,6 +1,8 @@
 node {
   stage('SCM') {
-    checkout scm
+    steps{
+        checkout scm
+    }
   }
   stage('Build'){
   }
